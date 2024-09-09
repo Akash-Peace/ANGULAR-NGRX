@@ -1,0 +1,59 @@
+<div class="content-container">
+<h1>Without Effects</h1>
+<div class="inputs-container">
+  <div class="input-area">
+    <input type="text" placeholder="Add new customer" #customer (input)="(0)" />
+    <button
+      (click)="addCustomer(customer.value); customer.value = ''"
+      [disabled]="!customer.value.length"
+    >
+      Add
+    </button>
+  </div>
+  <div class="input-area">
+    <input type="text" placeholder="Add new staff" #staff (input)="(0)" />
+    <button
+      (click)="addStaff(staff.value); staff.value = ''"
+      [disabled]="!staff.value.length"
+    >
+      Add
+    </button>
+  </div>
+  <div class="input-area">
+    <input type="text" placeholder="Add new product" #product (input)="(0)" />
+    <button
+      (click)="addProduct(product.value); product.value = ''"
+      [disabled]="!product.value.length"
+    >
+      Add
+    </button>
+    <button
+      (click)="removeProduct(product.value); product.value = ''"
+      [disabled]="!product.value.length"
+    >
+      Sold
+    </button>
+  </div>
+</div>
+<h3>Data from Store</h3>
+<div class="store-container">
+  <ul>
+    <h4>Customers</h4>
+    @for (customer of customers$ | async; track customer; let i = $index;) {
+      <span>{{ i + 1 }}. {{ customer }}</span><br />
+    }
+  </ul>
+  <ul>
+    <h4>Staffs</h4>
+    @for (staff of staffs$ | async; track staff; let i = $index;) {
+      <span>{{ i + 1 }}. {{ staff }}</span><br />
+    }
+  </ul>
+  <ul>
+    <h4>Products</h4>
+    @for (product of products$ | async; track product; let i = $index;) {
+      <span>{{ i + 1 }}. {{ product }}</span><br />
+    }
+  </ul>
+</div>
+</div>

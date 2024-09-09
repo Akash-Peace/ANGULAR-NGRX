@@ -1,0 +1,29 @@
+.inputs-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.store-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: blue;
+    padding-bottom: 15px;
+}
+
+.input-area {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+h4 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

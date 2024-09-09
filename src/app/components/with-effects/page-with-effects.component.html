@@ -1,0 +1,26 @@
+<div class="content-container">
+<h1>With Effects</h1>
+<div class="inputs-container">
+  <div style="display: flex">
+    <input style="width: 250px;" type="text" placeholder="Enter a name to predict the gender" #name (input)="(0)" />
+    <button
+      (click)="updateGender(name.value); name.value = ''"
+      [disabled]="!name.value.length"
+    >
+      Add
+    </button>
+  </div>
+</div>
+<h3>Data from Store</h3>
+<div class="store-container">
+  @if ((gender$ | async)?.loading) {
+    <h2>Loading...</h2>
+  } @else if ((gender$ | async)?.error) {
+    <h2 style="color: red;">API call failed: {{(gender$ | async)?.error?.statusText}}</h2>
+  } @else if (!(gender$ | async)?.gender?.gender) {
+    <h2 style="color: orange;">{{(gender$ | async)?.gender?.name}} - no such name found!</h2>
+  } @else {
+    <h2 style="color: green;">{{(gender$ | async)?.gender?.name + ' is ' + (gender$ | async)?.gender?.gender}}</h2>
+  }
+</div>
+</div>
